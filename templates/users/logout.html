@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+{% block title %}Logout | Post Scribers{% endblock title %}
+{% block content %}
+{% load crispy_forms_tags %}
+<!--- Main Content Start --->
+<div class="container">
+    <div class="row mt-4 py-2">
+        <div class="col-md-6 offset-md-3">
+            <div class="card my-2 shadow">
+                <div class="card-body">
+                    <h4 class="fst-italic fw-bolder">Logout Page</h4>
+                    <hr>
+                    <div class="alert alert-success">
+                        You have been logged out.
+                    </div>
+                    <a href="/login/" class="btn fst-italic fw-bolder btn-dark shadow btn-bg">Login</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--- Main Content close --->
+{% endblock content %}

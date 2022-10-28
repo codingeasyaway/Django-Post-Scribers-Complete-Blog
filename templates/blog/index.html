@@ -1,0 +1,42 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{title}}{% endblock title %}
+{% block content %}
+{% load crispy_forms_tags %}
+<!--- Main Content Start --->
+<div class="container ">
+    <div class="row mt-4 py-2">
+        <div class="col-md-4">
+            <div class="card my-2 shadow">
+                <div class="card-body fst-italic fw-bolder">
+                    <form action="/" method="post" >{% csrf_token %}
+                        {{form|crispy}}
+                        <input type="submit" value="Post" class="btn fst-italic fw-bolder btn-dark shadow col-12 mt-2 text-color btn-bg">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            {% for post in post %}
+            <!--{{post.title}} start-->
+            <div class="card shadow my-2">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="{{post.author.profilemodel.image.url}}" class="img-thumbnail"  alt="{{post.title}}">
+                        </div>
+                        <div class="col-md-8 fst-italic ">
+                            <small>{{post.date_create}}</small>
+                            <hr>
+                            <a href="{% url 'post-detail' post.id %}" class="h3 fw-bolder">{{post.title}}</a>
+                            <p class="text-justify my-3 fst-italic">{{post.content}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--{{post.title}} close-->
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!--- Main Content close --->
+{% endblock content %}

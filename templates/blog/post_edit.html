@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{title}}{% endblock title %}
+{% block content %}
+{% load crispy_forms_tags %}
+<!--- Main Content Start --->
+<div class="container ">
+    <div class="row mt-4 py-2">
+        <div class="col-md-5 offset-md-4">
+            <div class="card my-2 shadow">
+                <div class="card-body fst-italic ">
+                    <h4 class="fw-bolder">Edit Post </h4>
+                    <hr>
+                    <form method="post" class="fw-bolder">{% csrf_token %}
+                    {{form|crispy}}
+                        <input type="submit" value="Save" class="btn fw-bolder fst-italic mt-3 col-12 btn-sm btn-bg">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--- Main Content close --->
+{% endblock content %}

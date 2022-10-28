@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{title}}{% endblock title %}
+{% block content %}
+{% load crispy_forms_tags %}
+<!--- Main Content Start --->
+<div class="container ">
+    <div class="row mt-4 py-2">
+        <div class="col-md-4 offset-md-4">
+            <div class="card my-2 shadow">
+                <div class="card-body">
+                    <div class="alert alert-danger">
+                        Do you want delete post?
+                    </div>
+                    <form method="post">{% csrf_token %}
+                        <a href="{% url 'post-detail' post.id %}" class="btn fw-bolder btn-sm btn-bg col-3">Cancel</a>
+                        <input type="submit" value="Confirm" class="btn fw-bolder btn-sm btn-bg col-3 float-end">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--- Main Content close --->
+{% endblock content %}

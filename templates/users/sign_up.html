@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{title}}{% endblock title %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+<!--- Main Content Start --->
+<div class="cover">
+<div class="container">
+    <div class="row  py-2">
+        <div class="col-md-6 offset-md-3 mt-5">
+            <div class="card my-2 shadow">
+                <div class="card-body fw-bolder">
+                    <h4 >Sign Up Page</h4>
+                    <hr>
+                    <form action="{% url 'sign-up' %}" method="post">{% csrf_token %}
+                        {{form|crispy}}
+                        <input type="submit" value="Sign Up" class="btn btn-dark fw-bolder fst-italic btn-bg shadow col-12 mt-2">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div></div>
+<!--- Main Content close --->
+{% endblock content %}
